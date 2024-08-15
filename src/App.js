@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fetchAssessmentData } from './services/contentfulService';
 
 export const App = () => {
+  const [formData, setFormData] = useState('');
 
   useEffect(() => {
     const getData = async () => {
       try {
         const data = await fetchAssessmentData();
-        console.log(data);
+        setFormData(JSON.stringify(data))
       } catch (error) {
         console.error(error);
         throw error;
@@ -16,5 +17,7 @@ export const App = () => {
 
     getData();
   }, []);
+
+  return <crediblemind-assessment data={formData}></crediblemind-assessment>
 }
 
