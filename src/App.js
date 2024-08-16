@@ -18,6 +18,6 @@ export const App = () => {
     getData();
   }, []);
 
-  return <crediblemind-assessment data={formData}></crediblemind-assessment>
+  return formData && <crediblemind-assessment data={formData}></crediblemind-assessment>
 }
 
